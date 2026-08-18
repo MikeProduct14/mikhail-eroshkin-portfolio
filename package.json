@@ -1,0 +1,28 @@
+{
+  "name": "mikhail-eroshkin-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/copy-fonts.mjs && node scripts/generate-social-images.mjs",
+    "serve": "node scripts/serve.mjs",
+    "check:static": "node --test",
+    "check:html": "html-validate \"site/**/*.html\"",
+    "check:links": "node scripts/check-links.mjs",
+    "test:e2e": "playwright test",
+    "test": "npm run check:static && npm run check:html && npm run check:links && npm run test:e2e",
+    "audit": "node scripts/run-lighthouse.mjs",
+    "verify": "npm run build && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@fontsource-variable/commissioner": "^5.3.0",
+    "@fontsource-variable/unbounded": "^5.3.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.62.1",
+    "html-validate": "^10.9.0"
+  }
+}
